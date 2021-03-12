@@ -1,20 +1,17 @@
 import React from 'react'
 import Button from 'react-bootstrap/Button'
-import Card from 'react-bootstrap/Card'
+import { Link } from "react-router-dom";
+import { Cards } from '../Cards/Cards';
+import { Task } from '../../Utils/PacticeDb'
 
 export const Home = () => {
     return (
-        <div>
-            <Card style={{ width: '18rem' }}>
-                <Card.Body>
-                    <Card.Text>
-                    Some quick example text to build on the card title and make up the bulk of
-                    the card's content.
-                </Card.Text>
-                <Button variant="primary">Editar</Button>
-                <Button variant="danger">Borrar</Button>
-            </Card.Body>
-            </Card>
-        </div>
+            <div>
+                <Link to="/add" className="btn btn-success">Add New Task</Link>
+                {Task.map((task)=>{
+                    return <Cards task={task.task}/>
+                })}
+                <Cards />
+            </div>
     )
 }

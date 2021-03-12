@@ -1,17 +1,13 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Home } from './Components/Home/Home'
-import { Add } from './Components/Add/Add';
-import { Edit } from './Components/Edit/Edit';
+import { MainRoute } from './Routes/MainRoute';
 
 function App() {
   return (
     <>
-    <div className="App">
-      <Home />
-      <Add />
-      <Edit />
-    </div>
+      <div className="App">
+        <MainRoute />
+      </div>
     </>
   );
 }
