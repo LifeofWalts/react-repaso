@@ -7,17 +7,21 @@ import { TaskContext } from '../../Context/TaskContext'
 export const Add = () => {
     
     const {tasks, setTasks} = useContext(TaskContext)
-    const [value, setValue] = useState()
+    const [input, setInput] = useState("")
 
     const handleOnclick = (e)=>{
         e.preventDefault()
-        console.log(e)
+        setTasks([...tasks, {task:input}])
+        console.log(tasks)
     }
-    // const handleOnChange
+    const handleOnChange = (e)=>{
+        const { value } = e.target
+        setInput(value)
+    }
     return (
         <div>
             <Form.Group>
-                <Form.Control size="lg" type="text" placeholder="Escribe una tarea aquí"/>
+                <Form.Control size="lg" type="text" placeholder="Escribe una tarea aquí" onChange={handleOnChange}/>
             </Form.Group>
             <Button variant="primary" onClick={handleOnclick}>Confirmar</Button>
             <Link to="/" className="btn btn-danger">Cancelar</Link>
